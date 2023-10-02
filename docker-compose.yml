@@ -4,7 +4,7 @@ services:
     build:
       context: ./BackendDocker
     ports:
-      - "3000:3000"
+      - "4000:4000"
     # network_mode: host
     # networks:
     #   - comms

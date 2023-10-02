@@ -14,7 +14,7 @@ RUN git clone https://github.com/MuhammadAli68/CapstoneProjectBackend.git
 WORKDIR /app/CapstoneProjectBackend
 
 # Expose the port the app runs on
-EXPOSE 3000
+EXPOSE 4000
 
 # Command to run the app
 CMD [ "node", "server.js" ]

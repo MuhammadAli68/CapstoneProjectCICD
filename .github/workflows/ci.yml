@@ -22,10 +22,10 @@ jobs:
     - name: Build Backend Docker Image
       # with:
       #   files: ./BackendDocker
-      run: docker build -f ./BackendDocker/Dockerfile -t my-CapStone-Backend
+      run: docker build -f BackendDocker/Dockerfile -t my-CapStone-Backend .
     - name: Push Backend docker image to docker hub
       run: docker push dockerjuggy/my-Capstone-Backend:latest 
     - name: Build Frontend Docker Image
-      run: docker build -f ./FrontendDocker/Dockerfile -t my-CapStone-Frontend
+      run: docker build -f FrontendDocker/Dockerfile -t my-CapStone-Frontend .
     - name: Push Frontend docker image to docker hub
       run: docker push dockerjuggy/my-Capstone-Frontend:latest

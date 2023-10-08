@@ -14,7 +14,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    
+
     - name: Delete old Backend Docker image
       run: sudo rm -f dockerjuggy/my-capstone-backend:latest
     - name: Pull Backend Docker image
@@ -22,5 +22,15 @@ jobs:
     - name: Deploy container on Backend Server
       run: sudo docker run -p 4000:4000 --name backend-container dockerjuggy/my-capstone-backend:latest
     
+    runs-on: [self-hosted,Linux,X64,FrontendRunner]
 
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Delete old Frontend Docker image
+      run: sudo rm -f dockerjuggy/my-capstone-frontend:latest
+    - name: Pull Frontend Docker image
+      run: sudo docker pull dockerjuggy/my-capstone-frontend:latest
+    - name: Deploy container on Frontend Server
+      run: sudo docker run -p 5000:5000 --name Frontend-container dockerjuggy/my-capstone-frontend:latest
       

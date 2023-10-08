@@ -7,11 +7,9 @@ on:
     - completed
 
 jobs:
-
-  build:
-
+  # build:
+  deploy_container1:
     runs-on: [self-hosted,Linux,X64,BackendRunner]
-
     steps:
     - uses: actions/checkout@v3
 
@@ -21,9 +19,9 @@ jobs:
       run: sudo docker pull dockerjuggy/my-capstone-backend:latest
     - name: Deploy container on Backend Server
       run: sudo docker run -p 4000:4000 --name backend-container dockerjuggy/my-capstone-backend:latest
-    
+  
+  deploy_container2:
     runs-on: [self-hosted,Linux,X64,FrontendRunner]
-
     steps:
     - uses: actions/checkout@v3
 

@@ -1,0 +1,25 @@
+name: CD Pipeline
+
+on:
+  workflow_run:
+    workflows: [ "CI Pipeline" ]
+    types:
+    - completed
+
+jobs:
+
+  build:
+
+    runs-on: [self-hosted,Linux,X64,BackendRunner]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Delete old Backend Docker image
+      run: sudo rm -f dockerjuggy/my-capstone-backend:latest
+    - name: Pull Backend Docker image
+      run: sudo docker pull dockerjuggy/my-capstone-backend:latest
+    - name: Deploy container on Backend Server
+      run: sudo docker run -p 4000:4000 --name backend-container dockerjuggy/my-capstone-backend:latest
+    
+
+      

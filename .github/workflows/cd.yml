@@ -14,6 +14,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    
     - name: Delete old Backend Docker image
       run: sudo rm -f dockerjuggy/my-capstone-backend:latest
     - name: Pull Backend Docker image
